@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mimi_typh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Background video (always muted) -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source src="bg-video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <!-- Header: avatar + nick + about button -->
+    <header class="profile-header">
+      <div class="avatar-wrap">
+        <img src="avatar.jpg" alt="mimi_typh" class="avatar" />
+      </div>
+      <div class="profile-info">
+        <h1 class="nick">mimi_typh</h1>
+        <button class="about-btn" id="openAbout">Обо мне</button>
+      </div>
+    </header>
+
+    <!-- Games card -->
+    <main class="cards">
+      <article class="card games-card">
+        <h2 class="card-title">Любимые игры</h2>
+        <div class="games-grid">
+          <a class="game-btn" href="https://driftparadise.ru/" target="_blank" rel="noopener">
+            <img class="game-icon-img" src="icons/drift.png" alt="Drift Paradise" />
+            <span class="game-name">Drift Paradise</span>
+          </a>
+          <a class="game-btn" href="https://store.steampowered.com/app/252490/Rust/" target="_blank" rel="noopener">
+            <img class="game-icon-img" src="icons/rust.png" alt="Rust" />
+            <span class="game-name">Rust</span>
+          </a>
+          <a class="game-btn" href="https://store.steampowered.com/app/3478870/GeoGuessr_Steam_Edition/?l=russian" target="_blank" rel="noopener">
+            <img class="game-icon-img" src="icons/geoguessr.png" alt="GeoGuessr" />
+            <span class="game-name">GeoGuessr</span>
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <!-- Music player card -->
+    <section class="music-card">
+      <div class="music-header">
+        <h2 class="card-title">Треки</h2>
+        <div class="now-playing" id="nowPlaying">
+          <span class="now-label">Сейчас:</span>
+          <span class="now-track" id="nowTrack">ничего не играет</span>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <button class="ctrl-btn" id="prevBtn" title="Предыдущий">⏮</button>
+        <button class="ctrl-btn play-btn" id="playBtn" title="Играть / Пауза">▶</button>
+        <button class="ctrl-btn" id="nextBtn" title="Следующий">⏭</button>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="track-list" id="trackList">
+        <!-- filled by JS -->
+      </ul>
+    </section>
+  </div>
+
+  <!-- About modal -->
+  <div class="modal" id="aboutModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeAbout">&times;</button>
+      <h2 class="modal-title">Обо мне</h2>
+      <div class="modal-body">
+        <p> 
+         25-летний СВОШНИК! На данный момент моё очко под защитой, и не смейте трогать мою чудесную жизнь. 
+		 <p>А пока наслаждайтесь моим сайтом.
+		 </p>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="audioPlayer" preload="metadata"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
